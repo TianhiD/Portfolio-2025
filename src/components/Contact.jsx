@@ -3,7 +3,7 @@ import './styles/ContactBtn.css';
 
 const Contact = () => {
   return (
-    <div className='bg-black text-white py-20' id='contact'>
+    <div className='bg-zinc-900 text-white py-20' id='contact'>
       <div className='container mx-auto px-8 md:px-16 lg:px-24 flex flex-col items-center'>
         <h2 className='text-4xl font-bold text-center mb-12'>Contact me</h2>
         <div className='flex flex-col items-center'>
