@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './styles/Button.css';
-import resumeImage from '../assets/resume.png';
+import resumeImage from '../assets/resumeImg.png';
 
 const Resume = () => {
   const ref = useRef(null);
@@ -10,7 +10,7 @@ const Resume = () => {
   // margin: control trigger point
 
   const handleDownload = () => {
-    window.open('https://drive.google.com/file/d/1zUEoqpturY7Gwuc11BhUJu1kszxPx8D_/view?usp=drive_link', '_blank');
+    window.open('https://drive.google.com/file/d/1ohHrCfHkFo5iIZr6tOzY0hhRMoZpOIz3/view?usp=sharing', '_blank');
   };
 
   return (

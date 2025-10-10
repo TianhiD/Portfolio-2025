@@ -22,7 +22,6 @@ const About = () => {
   return (
     <div className='bg-zinc-900 text-white py-20' id='about'>
       <div className='max-w-7xl mx-auto px-8 md:px-16 lg:px-24' ref={ref}>
-        
         {/* Header */}
         <motion.h2
           className='text-4xl font-bold text-center mb-12'
@@ -61,9 +60,8 @@ const About = () => {
               Hello, I'm Tianhi Devold, a front-end developer from Norway and I'm 24 years old. I'm majoring in front-end development at Kristiania University College right now. However, this spring (2024), I'm taking an exchange semester at SUU in Utah, US, in hopes of learning new skills and meeting people from around the world.<br /><br />
               I love developing aesthetically pleasing and intuitive user interfaces that seamlessly combine functionality and design. My passion for creating digital experiences that have a lasting impact and my interest in constantly evolving web technologies motivate me to pursue a career in front-end development. When I'm not coding, I enjoy traveling, photography, and spending time in nature.
             </p>
-            
+            {/* Technologies that interest me */}
             <h3 className='text-2xl font-semibold mb-4'>Technologies that interest me</h3>
-
             {/* Grid of animated tech boxes */}
             <div className='grid grid-cols-3 md:grid-cols-4 gap-4'>
               {[
@@ -71,8 +69,15 @@ const About = () => {
                 { label: 'JavaScript', emoji: '🟨' },
                 { label: 'Java', emoji: '☕' },
                 { label: 'Kotlin', emoji: '🚀' },
+                { label: 'React', emoji: '⚛️' },
+                { label: 'Swift', emoji: '🦅' },
               ].map((tech, index) => (
-                <TechBox key={tech.label} {...tech} index={index} isInView={isInView} />
+                <div
+                  key={tech.label}
+                  className='transform rotate-[-5deg] hover:rotate-0 transition-transform duration-300'
+                >
+                  <TechBox {...tech} index={index} isInView={isInView} />
+                </div>
               ))}
             </div>
           </motion.div>
