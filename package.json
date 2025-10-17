@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://TianhiD.github.io/Portfolio-2025",
+  "homepage": "https://tianhid.github.io/Portfolio-2025/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
