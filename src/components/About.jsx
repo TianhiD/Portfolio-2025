@@ -57,7 +57,7 @@ const About = () => {
             transition={{ delay: 0.3, duration: 0.7 }}
           >
             <p className='text-lg mb-8 pt-3'>
-              Hello, I'm Tianhi Devold, a front-end developer from Norway and I'm 25 years old. I have a bachelor in front-end development at Kristiania University College. I am currently taking a master`s degree in Technology, Innovation and Knowledge at the University of Oslo. However, this spring (2024), I'm taking an exchange semester at SUU in Utah, US, in hopes of learning new skills and meeting people from around the world.<br /><br />
+              Hello, I'm Tianhi Devold, a front-end developer from Norway and I'm 25 years old. I have a bachelor in front-end development at Kristiania University College. I am currently taking a master`s degree in Technology, Innovation and Knowledge at the University of Oslo. However, last spring (2024), I'm taking an exchange semester at SUU in Utah, US, in hopes of learning new skills and meeting people from around the world.<br /><br />
               I love developing aesthetically pleasing and intuitive user interfaces that seamlessly combine functionality and design. My passion for creating digital experiences that have a lasting impact and my interest in constantly evolving web technologies motivate me to pursue a career in front-end development. When I'm not coding, I enjoy traveling, photography, and creating digital art.
             </p>
             {/* Technologies Section */}
