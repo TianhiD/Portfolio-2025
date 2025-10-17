@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './styles/Projects.css';
 import projectImg1 from '../assets/ArtvistaImg.png';
+import projectImg2 from '../assets/Android.png';
 import ArtCard from './ArtCard.jsx';
 import artImg1 from '../assets/Devold_Tianhi_poster_A2.jpg';
 import artImg2 from '../assets/Devold_Tianhi_A1.jpg';
@@ -9,6 +10,9 @@ import artImg3 from '../assets/magazine.png';
 import artImg4 from '../assets/multime.png';
 import artImg5 from '../assets/pamplet.png';
 import artImg6 from '../assets/doubleexposure.png';
+import artImg7 from '../assets/card.png';
+import artImg8 from '../assets/projectLogo.png';
+import { image } from 'framer-motion/client';
 
 const projectData = [
   {
@@ -19,7 +23,7 @@ const projectData = [
     codeLink: 'https://github.com/TianhiD/ArtVista-App',
   },
   {
-    image: 'https://via.placeholder.com/600x400',
+    image: projectImg2,
     title: 'Clothing App',
     description:
       'An Android clothing app that allows users to browse and purchase clothing items in app history. Built with Kotlin.',
@@ -28,12 +32,14 @@ const projectData = [
 ];
 
 const artData = [
-  { image: artImg1, title: 'Art 1', description: 'Description of Art 1' },
-  { image: artImg6, title: 'Art 2', description: 'Description of Art 2' },
-  { image: artImg3, title: 'Art 3', description: 'Description of Art 3' },
-  { image: artImg4, title: 'Art 4', description: 'Description of Art 4' },
-  { image: artImg5, title: 'Art 5', description: 'Description of Art 5' },
-  { image: artImg2, title: 'Art 6', description: 'Description of Art 6' },
+  { image: artImg1, title: 'Announcement poster', description: 'This is my second project in photoshop where I utilize guides, different color modes and layer organization. ' },
+  { image: artImg6, title: 'Double exposure', description: 'This is my fourth photoshop project where I learned how to use layer masks and clipping masks to combine landscape and portrait images. ' },
+  { image: artImg3, title: 'Magazine', description: 'This is my second inDesign project where I have created a magazine with page layout, color, design and a clear theme. ' },
+  { image: artImg7, title: 'Business Card', description: 'This is my first project in illustrator where I have created a business card with layout composition and design in mind. ' },
+  { image: artImg8, title: 'Logo Design', description: 'This is my first project in illustrator where I have created a logo for a fictional company called ArtVista. ' },
+  { image: artImg4, title: 'Multi-Me Composite', description: 'This is my third project in photoshop where I utilize layer masks on multiple images of my self. ' },
+  { image: artImg5, title: 'Pamphlet', description: 'This is my first inDesign project where I have created a pamphlet with layout composition and design in mind. ' },
+  { image: artImg2, title: 'Layers + masks', description: 'This is my first project in photoshop where I use layer mask to create the illusion of the image overlapping the text.' },
 ];
 
 const Projects = () => {
@@ -63,12 +69,12 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className='projects-section'>
-          <div className='container'>
-            <div className='projects-grid'>
+          <div className='container '>
+            <div className='projects-grid grid grid-cols-1 md:grid-cols-2 gap-8'>
               {projectData.map((project, index) => (
                 <motion.div
                   key={index}
-                  className='project-card'
+                  className='project-card bg-orange-50 text-sky-950 rounded-lg overflow-hidden shadow-lg p-6 transition-transform hover:scale-[1.02] border border-zinc-200'
                   variants={fadeUp}
                   initial='hidden'
                   animate={isInView ? 'visible' : 'hidden'}
@@ -81,18 +87,19 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className='project-image'
+                    className='project-image rounded-md mb-4 object-cover w-full h-48'
                   />
                   <div className='project-info'>
-                    <p>{project.description}</p>
+                    <h3 className='text-xl font-semibold mb-2'>{project.title}</h3>
+                    <p className='text-sm mb-4'>{project.description}</p>
                     <div className='project-buttons'>
                       <a
                         href={project.codeLink}
-                        className='btn btn-code'
+                        className='inline-block px-4 py-2 bg-sky-950 text-white rounded-md text-sm shadow hover:opacity-90 transition'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        Code
+                        View Code
                       </a>
                     </div>
                   </div>
@@ -130,15 +137,18 @@ const Projects = () => {
                 {artData.map((art, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                    transition={{ delay: index * 0.08, duration: 0.45 }}
+                    className='bg-orange-50 rounded-lg shadow-lg border border-zinc-200 overflow-hidden'
                   >
-                    <ArtCard
-                      image={art.image}
-                      title={art.title}
-                      description={art.description}
-                    />
+                    <div className='p-4'>
+                      <ArtCard
+                        image={art.image}
+                        title={art.title}
+                        description={art.description}
+                      />
+                    </div>
                   </motion.div>
                 ))}
               </div>

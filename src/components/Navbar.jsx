@@ -4,16 +4,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Add a scroll event listener to change the navbar background on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,57 +13,55 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-        ? 'bg-zinc-900 bg-opacity-40 backdrop-blur-md shadow-lg'
-        : 'bg-zinc-900 bg-opacity-100'
+        isScrolled
+          ? 'bg-zinc-900 bg-opacity-40 backdrop-blur-md shadow-lg'
+          : 'bg-zinc-900 bg-opacity-100'
       }`}
-      style={{ height: '80px', paddingTop: '10px', paddingBottom: '10px' }} // Added padding for vertical spacing
+      style={{ height: '80px', paddingTop: '10px', paddingBottom: '10px' }}
     >
-      <div className='container flex justify-between items-center px-4 md:px-16'>
-        <div className='text-2xl font-bold text-white hover:text-green-300 transition-colors duration-300'>
+      <div className="container mx-auto px-4 md:px-16 flex items-center justify-between">
+        <div className="text-2xl font-bold text-white hover:text-green-300 transition-colors duration-300">
           Tianhi Devold
         </div>
+
+        {/* Hamburger */}
         <button
-          className='md:hidden text-white text-2xl'
-          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={isOpen}
+          aria-controls="primary-navigation"
+          className="md:hidden text-white text-2xl p-2 rounded hover:bg-white/5 transition"
+          onClick={() => setIsOpen(prev => !prev)}
         >
-          ☰
+          {/* simple icon */}
+          <span className="sr-only">Menu</span>
+          {isOpen ? '✕' : '☰'}
         </button>
+
+        {/* Menu: stacked on mobile, inline on md+ */}
         <div
-          className={`space-x-6 md:flex items-center ${
+          id="primary-navigation"
+          className={`absolute left-0 top-20 w-full md:static md:w-auto transition-all duration-200 ${
             isOpen ? 'block' : 'hidden'
-          }`}
+          } md:block`}
         >
-          <a
-            href="#home"
-            className='block md:inline font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300'
-          >
-            Home
-          </a>
-          <a
-            href="#about"
-            className='block md:inline font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300'
-          >
-            About me
-          </a>
-          <a
-            href="#projects"
-            className='block md:inline font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300'
-          >
-            Projects
-          </a>
-          <a
-            href="#resume"
-            className='block md:inline font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300'
-          >
-            Resume
-          </a>
-          <a
-            href="#contact"
-            className='block md:inline font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300'
-          >
-            Contact
-          </a>
+          <div className="bg-zinc-900/95 md:bg-transparent md:flex md:items-center md:space-x-6 py-4 md:py-0">
+            {[
+              { href: '#home', label: 'Home' },
+              { href: '#about', label: 'About me' },
+              { href: '#projects', label: 'Projects' },
+              { href: '#resume', label: 'Resume' },
+              { href: '#contact', label: 'Contact' },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block w-full text-center md:inline md:w-auto font-mono font-bold text-lg text-white hover:text-green-300 transition-colors duration-300 py-3 md:py-0"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

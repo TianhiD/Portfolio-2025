@@ -1,13 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './styles/Button.css';
-import resumeImage from '../assets/resumeImg.png';
+import resumeVideo from '../assets/resumeAnimation.mp4';
 
 const Resume = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: '-100px' }); 
-  // once: false => can animate again when re-entering view
-  // margin: control trigger point
+  const isInView = useInView(ref, { once: false, margin: '-100px' });
 
   const handleDownload = () => {
     window.open('https://drive.google.com/file/d/1ohHrCfHkFo5iIZr6tOzY0hhRMoZpOIz3/view?usp=sharing', '_blank');
@@ -19,11 +17,15 @@ const Resume = () => {
         ref={ref}
         className='container mx-auto px-8 md:px-16 lg:px-24 flex flex-col items-center'
       >
-        {/* Animated Image */}
-        <motion.img
-          src={resumeImage}
-          alt="Resume"
-          className='mb-8 w-50 max-w-sm rounded'
+        {/* Animated Video */}
+        <motion.video
+          src={resumeVideo}
+          alt="Resume animation"
+          className='mb-8 w-50 max-w-sm rounded overflow-hidden'
+          playsInline
+          autoPlay
+          loop
+          muted
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}

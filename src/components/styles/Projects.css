@@ -20,7 +20,7 @@
 .project-card {
   display: flex;
   align-items: center;
-  background: #2A2A2D;
+  background: #fff4e7;
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -94,7 +94,7 @@
 
 /* Art Card Styles */
 .art-card {
-  background-color: #1a1a1a;
+  background-color: #fff4e7;
   padding: 16px;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
