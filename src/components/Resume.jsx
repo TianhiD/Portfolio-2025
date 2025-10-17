@@ -14,7 +14,7 @@ const Resume = () => {
   };
 
   return (
-    <div className='bg-zinc-900 text-white py-20' id='resume'>
+    <div className='bg-orange-50 text-sky-950 py-20' id='resume'>
       <div 
         ref={ref}
         className='container mx-auto px-8 md:px-16 lg:px-24 flex flex-col items-center'

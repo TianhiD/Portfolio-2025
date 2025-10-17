@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import './styles/Projects.css';
-import projectImg1 from '../assets/artvista.png';
+import projectImg1 from '../assets/ArtvistaImg.png';
 import ArtCard from './ArtCard.jsx';
 import artImg1 from '../assets/Devold_Tianhi_poster_A2.jpg';
 import artImg2 from '../assets/Devold_Tianhi_A1.jpg';
@@ -16,16 +16,14 @@ const projectData = [
     title: 'ArtVista',
     description:
       'An app to explore and discover artworks from various artists around the world. Built with React Native, Swift, and Firebase.',
-    demoLink: '#',
     codeLink: 'https://github.com/TianhiD/ArtVista-App',
   },
   {
     image: 'https://via.placeholder.com/600x400',
-    title: 'Shortly',
+    title: 'Clothing App',
     description:
-      'Landing page of an app that allows shortening URLs. Made with React Hooks, sessionStorage and REST API',
-    demoLink: '#',
-    codeLink: '#',
+      'An Android clothing app that allows users to browse and purchase clothing items in app history. Built with Kotlin.',
+    codeLink: 'https://github.com/TianhiD/AndroidClothingApp/tree/main',
   },
 ];
 
@@ -50,7 +48,7 @@ const Projects = () => {
   };
 
   return (
-    <div className='bg-zinc-900 text-white py-20' id='projects'>
+    <div className='bg-orange-50 text-sky-950 py-20' id='projects'>
       <div className='container mx-auto px-8 md:px-16 lg:px-24' ref={sectionRef}>
         {/* Header */}
         <motion.h2
@@ -88,14 +86,6 @@ const Projects = () => {
                   <div className='project-info'>
                     <p>{project.description}</p>
                     <div className='project-buttons'>
-                      <a
-                        href={project.demoLink}
-                        className='btn btn-demo'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                      >
-                        Demo
-                      </a>
                       <a
                         href={project.codeLink}
                         className='btn btn-code'

@@ -21,7 +21,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-stone-600 shadow-lg' : 'bg-zinc-900'
+        isScrolled 
+        ? 'bg-zinc-900 bg-opacity-40 backdrop-blur-md shadow-lg'
+        : 'bg-zinc-900 bg-opacity-100'
       }`}
       style={{ height: '80px', paddingTop: '10px', paddingBottom: '10px' }} // Added padding for vertical spacing
     >

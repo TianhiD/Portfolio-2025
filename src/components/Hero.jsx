@@ -40,7 +40,7 @@ const Hero = () => {
   }, [subtitle, typing, subIndex]);
 
   return (
-    <div className="relative bg-zinc-900 text-white text-center py-16 overflow-hidden" id="hero">
+    <div className="relative bg-orange-50 text-sky-950 text-center py-16 overflow-hidden" id="hero">
 
       {/* Animated background overlay */}
       <div
@@ -78,7 +78,7 @@ const Hero = () => {
           <span
             className="w-2 h-4 inline-block bg-white"
             style={{
-              borderRight: '2px solid #f9f9f9',
+              borderRight: '2px solid #3b3b3bff',
               animation: 'blink 1s step-start infinite'
             }}
           />
