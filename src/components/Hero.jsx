@@ -89,13 +89,7 @@ const Hero = () => {
           I love building modern web apps, sharing knowledge, and exploring new tech. Dive into my projects, read my blog, or get in touch!
         </p>
 
-        {/* Contact Button with hover lift */}
-        <a
-          href="#contact"
-          className="inline-block mt-8 px-6 py-3 bg-emerald-600 text-white rounded-full font-semibold shadow-lg transition-transform transform hover:-translate-y-1 hover:bg-emerald-700"
-        >
-          Contact Me
-        </a>
+        
       </div>
 
       {/* Tailwind animations / keyframes */}
